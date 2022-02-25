@@ -1,5 +1,7 @@
-omport json
-um tenemos un gran equipo de Houmers que muestran las propiedades y solucionan todos los problemas que podrían ocurrir en ellas. Ellos son parte fundamental de nuestra operación y de la experiencia que tienen nuestros clientes. Es por esta razón que queremos incorporar ciertas métricas para monitorear cómo operan, mejorar la calidad de servicio y para asegurar la seguridad de nuestros Houmers.
+# Backend Tech Lead Challenge
+
+## Problema
+En Houm tenemos un gran equipo de Houmers que muestran las propiedades y solucionan todos los problemas que podrían ocurrir en ellas. Ellos son parte fundamental de nuestra operación y de la experiencia que tienen nuestros clientes. Es por esta razón que queremos incorporar ciertas métricas para monitorear cómo operan, mejorar la calidad de servicio y para asegurar la seguridad de nuestros Houmers.
 
 ## Requisitos
 Crear un servicio REST que:
@@ -55,10 +57,12 @@ Response:
 	"token": "e6f395559188a6fcbeeda7057d7985755d247e00"
 }
 ```
-Registro de Propiedad
+Registro de Propiedad (POST)
 ```sh
 Request:
 /api/propertys/
+Authorization: Token <token>
+
 body = {
 	"address": "av pedro ruiz gallo 935, ate"
 }
@@ -73,12 +77,54 @@ Response:
 }
 ```
 
-print('Loading function')
-def lambda_handler(event, context):
-        #print("Received event: " + json.dumps(event, indent=2))
-            print("value1 = " + event['key1'])
-                print("value2 = " + event['key2'])
-                    print("value3 = " + event['key3'])
-                        return event['key1'] # Echo back the first key value
-                        #raise Exception('Something went wrong')
+Listado de propiedad en un dia (GET)
+
+```sh
+Request:
+/api/propertys/?register=2022-02-24
+Authorization: Token <token>
+
+
+Response:
+[
+	{
+		"id": 2,
+		"address": "1600 Amphitheatre Parkway, Mountain View, CA",
+		"latitude": 37.422388,
+		"longitude": -122.0841883,
+		"register": "2022-02-25",
+		"start_date": "2022-02-25T08:47:04.862649-05:00",
+		"finish_date": "2022-02-25T09:47:04.862649-05:00",
+		"houm": 1,
+		"property_details": {
+			"id": 2,
+			"description": null,
+			"total_time_sec": 3600,
+			"speed": "2226698.67",
+			"created": "2022-02-25T08:47:04.900147-05:00",
+			"updated": "2022-02-25T08:50:47.398390-05:00",
+			"property": 2
+		}
+	},
+	{
+		"id": 1,
+		"address": "av pedro ruiz gallo 935, ate",
+		"latitude": -12.0219671,
+		"longitude": -76.9126153,
+		"register": "2022-02-25",
+		"start_date": "2022-02-25T07:46:53.159320-05:00",
+		"finish_date": "2022-02-25T08:46:53.159320-05:00",
+		"houm": 1,
+		"property_details": {
+			"id": 1,
+			"description": null,
+			"total_time_sec": 3600,
+			"speed": "",
+			"created": "2022-02-25T08:47:04.884733-05:00",
+			"updated": "2022-02-25T08:47:04.891684-05:00",
+			"property": 1
+		}
+	}
+]
+```
 
