@@ -18,6 +18,11 @@ Crear un servicio REST que:
 - Al realizar actualización de la salida de propiedad se actualiza el tiempo total que estuvo el cliente en la propiedad.
 - Cuando ingresa una nueva dirección de la propiedad en el servicio se realiza el calculo de la velocidad de las dos direcciones (coordenadas) en km/h.
 
+## Tech
+- https://developers.google.com/maps?hl=es-419
+- https://towardsdatascience.com/calculating-distance-between-two-geolocations-in-python-26ad3afe287b
+
+
 ## Development
 
 Crear tu virtualenv
@@ -81,7 +86,7 @@ Listado de propiedad en un dia (GET)
 
 ```sh
 Request:
-/api/propertys/?register=2022-02-24
+/api/propertys/?register=2022-02-24&speed=10
 Authorization: Token <token>
 
 
@@ -127,4 +132,3 @@ Response:
 	}
 ]
 ```
-

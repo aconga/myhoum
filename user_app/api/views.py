@@ -25,9 +25,6 @@ def registration_view(request):
         
         if serializer.is_valid():
             account = serializer.save()
-            print("#"*100)
-            print(account)
-            
             data['response'] = "Registration Successful!"
             data['username'] = account.username
             data['email'] = account.email
