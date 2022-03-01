@@ -42,9 +42,12 @@ class PropertyList(APIView):
                 if obj_last.finish_date is None:
                     obj_last.finish_date = start_last + timedelta(hours=1)
                     obj_last.save()
+                # get first coordinate
                 loc1 = (lat_last, long_last)
                 obj, lat, long, start = get_lat_lng_model(Property)
+                # get first coordinate
                 loc2 = (lat, long)
+                # get speed of the coordinates
                 distance = hs.haversine(loc1, loc2)
                 total_time = abs(obj.start_date - obj_last.finish_date)
                 total_time_hour = (total_time).total_seconds()/3600

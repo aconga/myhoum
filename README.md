@@ -25,22 +25,15 @@ Crear un servicio REST que:
 
 ## Development
 
-Crear tu virtualenv
+Tener instalado docker y docker-compose
 ```sh
-python3 -m venv env
+docker-compose build
 ```
 
 ```sh
-pip install -r requeriments.txt
+docker-compose up -d
 ```
 
-```sh
-python manage.py migrate
-```
-
-```sh
-python manage.py runserver
-```
 ## API
 
 Registro de Houm
@@ -62,6 +55,22 @@ Response:
 	"token": "e6f395559188a6fcbeeda7057d7985755d247e00"
 }
 ```
+
+Login de Houm
+```sh
+Request:
+/account/login/
+body = {
+	"username": "aconga1",
+	"password": "A142857.?"
+}
+
+Response:
+{
+	"token": "b1ded22d15d008aa238830385602e2c75d71da36"
+}
+```
+
 Registro de Propiedad (POST)
 ```sh
 Request:
@@ -131,4 +140,19 @@ Response:
 		}
 	}
 ]
+```
+
+Update de Houm
+```sh
+Request:
+api/propertys/2/
+body = {
+	"finish_date": "2022-02-25T09:47:04.862649-05:00"
+}
+
+
+Response:
+{
+	"finish_date": "2022-02-25T09:47:04.862649-05:00"
+}
 ```
